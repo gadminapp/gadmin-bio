@@ -19,8 +19,5 @@
     "astro": "^6.3.0",
     "tailwindcss": "^4.2.2",
     "wrangler": "^4.100.0"
-  },
-  "overrides": {
-    "vite": "^7"
   }
 }
