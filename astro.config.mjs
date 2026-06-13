@@ -3,9 +3,11 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://gadminconty.com',
+
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/roi-calculator'),
@@ -18,6 +20,7 @@ export default defineConfig({
       },
     }),
   ],
+
   vite: {
     plugins: [tailwindcss()],
   },
