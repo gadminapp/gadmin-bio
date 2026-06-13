@@ -20,7 +20,7 @@ const t = useTranslations(lang);
   <div class="bio-container">
     <!-- Language Switcher -->
     <div class="lang-switch-container animate-up delay-0">
-      <a href="/" class="lang-switch-btn">
+      <a href="/" class="lang-switch-btn" onclick="sessionStorage.setItem('lang-chosen','en')">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="14"
@@ -291,6 +291,11 @@ const t = useTranslations(lang);
       </a>
     </div>
   </div>
+
+  <script>
+    // Mark that the user is intentionally on the Spanish page
+    sessionStorage.setItem("lang-chosen", "es");
+  </script>
 
   <script>
     const observer = new IntersectionObserver(

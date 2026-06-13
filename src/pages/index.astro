@@ -20,7 +20,7 @@ const t = useTranslations(lang);
   <div class="bio-container">
     <!-- Language Switcher -->
     <div class="lang-switch-container animate-up delay-0">
-      <a href="/es" class="lang-switch-btn">
+      <a href="/es" class="lang-switch-btn" onclick="sessionStorage.setItem('lang-chosen','es')">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="14"
@@ -291,6 +291,19 @@ const t = useTranslations(lang);
       </a>
     </div>
   </div>
+
+  <script>
+    // Auto-redirect Spanish-language users to /es
+    // Skip if they have already been redirected or explicitly chose English
+    const hasChosen = sessionStorage.getItem("lang-chosen");
+    if (!hasChosen) {
+      const lang = navigator.language || (navigator as any).userLanguage || "";
+      if (lang.toLowerCase().startsWith("es")) {
+        sessionStorage.setItem("lang-chosen", "es");
+        window.location.replace("/es");
+      }
+    }
+  </script>
 
   <script>
     const observer = new IntersectionObserver(
