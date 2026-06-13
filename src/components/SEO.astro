@@ -1,0 +1,125 @@
+---
+import { getAlternateUrls } from "../i18n/utils";
+import type { Lang } from "../i18n/ui";
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+  canonicalURL?: URL | string;
+  type?: string;
+  lang?: Lang;
+  robots?: string;
+}
+
+const {
+  title = "Gadmin - El ecosistema de apps para tu negocio",
+  description = "Gadmin es el ecosistema de aplicaciones diseñado para PyMEs. Conty para tus cuentas, Shop para tu tienda. Todo integrado.",
+  keywords = "gadmin, conty, shop, apps para negocios, ecosistema empresarial, pymes, emprendedores, venezuela, contabilidad, tienda online",
+  image = "/meta-banner.png",
+  canonicalURL = Astro.url,
+  type = "website",
+  lang = "en",
+  robots = "index, follow",
+} = Astro.props;
+
+const siteTitle = title.includes("Gadmin") ? title : `${title} | Gadmin`;
+
+const siteUrl = Astro.site
+  ? Astro.site.toString().replace(/\/$/, "")
+  : "https://bio.gadmin.app";
+const logoUrl = `${siteUrl}/favicon.png`;
+const bannerUrl = `${siteUrl}/meta-banner.png`;
+
+// hreflang alternate URLs
+const alternates = getAlternateUrls(Astro.url.pathname, siteUrl);
+
+// Locale for OG tags
+const ogLocale = lang === "es" ? "es_ES" : "en_US";
+const ogLocaleAlt = lang === "es" ? "en_US" : "es_ES";
+
+// Rich Schema (JSON-LD)
+const schemaObject = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "Gadmin",
+      url: siteUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: logoUrl,
+      },
+      image: bannerUrl,
+      description: description,
+      inLanguage: lang === "es" ? "es" : "en",
+      sameAs: [
+        "https://gadminconty.com",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "Gadmin",
+      inLanguage: lang === "es" ? "es" : "en",
+      publisher: {
+        "@id": `${siteUrl}/#organization`,
+      },
+    },
+  ],
+};
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="icon" href="/favicon.ico" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- hreflang alternate links (SEO for multilingual) -->
+<link rel="alternate" hreflang="en" href={alternates.en} />
+<link rel="alternate" hreflang="es" href={alternates.es} />
+<link rel="alternate" hreflang="x-default" href={alternates.en} />
+
+<!-- Primary Meta Tags -->
+<title>{siteTitle}</title>
+<meta name="title" content={siteTitle} />
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={siteTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:locale" content={ogLocale} />
+<meta property="og:locale:alternate" content={ogLocaleAlt} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={siteTitle} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- Robots -->
+<meta name="robots" content={robots} />
+
+<!-- Preconnect to Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
+  rel="stylesheet"
+/>
+
+<!-- Google Rich Schema (JSON-LD) -->
+<script type="application/ld+json" set:html={JSON.stringify(schemaObject)} />

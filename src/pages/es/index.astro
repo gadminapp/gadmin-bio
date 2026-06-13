@@ -1,0 +1,311 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { useTranslations } from "../../i18n/utils";
+import logoLight from "../../assets/logo-light.webp";
+import contyLogo from "../../assets/conty-logo.webp";
+import shopLogo from "../../assets/shop-logo.webp";
+
+const lang = "es" as const;
+const t = useTranslations(lang);
+---
+
+<Layout
+  title={t("bio.seo.title")}
+  description={t("bio.seo.description")}
+  keywords={t("bio.seo.keywords")}
+  lang={lang}
+>
+  <div class="bio-bg-glow"></div>
+
+  <div class="bio-container">
+    <!-- Language Switcher -->
+    <div class="lang-switch-container animate-up delay-0">
+      <a href="/" class="lang-switch-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><circle cx="12" cy="12" r="10"></circle><line
+            x1="2"
+            y1="12"
+            x2="22"
+            y2="12"></line><path
+            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+          ></path></svg
+        >
+        <span>English</span>
+      </a>
+    </div>
+
+    <!-- Header -->
+    <header class="bio-header animate-up delay-0">
+      <div class="bio-avatar">
+        <img src={logoLight.src} alt="Gadmin" class="bio-avatar-img" />
+      </div>
+      <h1 class="bio-title">{t("bio.seo.title")}</h1>
+      <p class="bio-subtitle">{t("bio.seo.description")}</p>
+    </header>
+
+    <!-- Apps & Ecosystem Card -->
+    <div class="bio-ecosystem animate-up delay-1">
+      <div class="bio-ecosystem-title">{t("bio.ecosystem.title")}</div>
+
+      <div class="bio-apps-grid">
+        <!-- Conty -->
+        <a
+          href="https://gadminconty.com"
+          target="_blank"
+          rel="noopener"
+          class="bio-app-mini conty"
+        >
+          <div class="bio-app-mini-header">
+            <div class="bio-app-mini-icon">
+              <img src={contyLogo.src} alt="Conty" />
+            </div>
+            <div class="bio-app-mini-meta">
+              <div class="bio-app-mini-name">{t("bio.conty.name")}</div>
+              <div class="bio-app-mini-badge">{t("bio.conty.badge")}</div>
+            </div>
+          </div>
+          <p class="bio-app-mini-desc">{t("bio.conty.tagline")}</p>
+        </a>
+
+        <!-- Shop -->
+        <a
+          href="https://gadmin.shop"
+          target="_blank"
+          rel="noopener"
+          class="bio-app-mini shop"
+        >
+          <div class="bio-app-mini-header">
+            <div class="bio-app-mini-icon">
+              <img src={shopLogo.src} alt="Shop" />
+            </div>
+            <div class="bio-app-mini-meta">
+              <div class="bio-app-mini-name">{t("bio.shop.name")}</div>
+              <div class="bio-app-mini-badge">{t("bio.shop.badge")}</div>
+            </div>
+          </div>
+          <p class="bio-app-mini-desc">{t("bio.shop.tagline")}</p>
+        </a>
+      </div>
+
+      <div class="bio-ecosystem-sync">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"
+          ></path></svg
+        >
+        {t("bio.ecosystem.sync")}
+      </div>
+    </div>
+
+    <!-- Bio Links List -->
+    <div class="bio-links-list animate-up delay-2">
+      <!-- Descargar Conty -->
+      <a
+        href="https://gadminconty.com"
+        target="_blank"
+        rel="noopener"
+        class="bio-link-btn primary-conty"
+      >
+        <div class="bio-link-btn-icon">
+          <img src={contyLogo.src} alt="Conty" />
+        </div>
+        <span>{t("bio.links.conty")}</span>
+        <svg
+          class="bio-link-btn-arrow"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+        >
+      </a>
+
+      <!-- Visitar Shop -->
+      <a
+        href="https://gadmin.shop"
+        target="_blank"
+        rel="noopener"
+        class="bio-link-btn primary-shop"
+      >
+        <div class="bio-link-btn-icon">
+          <img src={shopLogo.src} alt="Shop" />
+        </div>
+        <span>{t("bio.links.shop")}</span>
+        <svg
+          class="bio-link-btn-arrow"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+        >
+      </a>
+
+      <!-- Visitar la web de Gadmin -->
+      <a
+        href="https://gadmin.app"
+        target="_blank"
+        rel="noopener"
+        class="bio-link-btn brand-gadmin"
+      >
+        <div class="bio-link-btn-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><circle cx="12" cy="12" r="10"></circle><line
+              x1="2"
+              y1="12"
+              x2="22"
+              y2="12"></line><path
+              d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+            ></path></svg
+          >
+        </div>
+        <span>{t("bio.links.gadmin")}</span>
+        <svg
+          class="bio-link-btn-arrow"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+        >
+      </a>
+
+      <!-- Ir a Tik Tok -->
+      <a
+        href="https://www.tiktok.com/@gadmin.app"
+        target="_blank"
+        rel="noopener"
+        class="bio-link-btn tiktok-btn"
+      >
+        <div class="bio-link-btn-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg
+          >
+        </div>
+        <span>{t("bio.links.tiktok")}</span>
+        <svg
+          class="bio-link-btn-arrow"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+        >
+      </a>
+
+      <!-- Ir a Instagram -->
+      <a
+        href="https://www.instagram.com/gadmin.app/"
+        target="_blank"
+        rel="noopener"
+        class="bio-link-btn instagram-btn"
+      >
+        <div class="bio-link-btn-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path
+              d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line
+              x1="17.5"
+              y1="6.5"
+              x2="17.51"
+              y2="6.5"></line></svg
+          >
+        </div>
+        <span>{t("bio.links.instagram")}</span>
+        <svg
+          class="bio-link-btn-arrow"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+        >
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("visible");
+            observer.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+    document
+      .querySelectorAll(".animate-up")
+      .forEach((el) => observer.observe(el));
+  </script>
+</Layout>
