@@ -3,15 +3,12 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
-import cloudflare from '@astrojs/cloudflare';
-
 // https://astro.build/config
 export default defineConfig({
   site: 'https://gadminconty.com',
 
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/roi-calculator'),
       i18n: {
         defaultLocale: 'en',
         locales: {
@@ -25,6 +22,4 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-
-  adapter: cloudflare(),
 });
