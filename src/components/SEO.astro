@@ -17,7 +17,7 @@ const {
   title = "Gadmin - El ecosistema de apps para tu negocio",
   description = "Gadmin es el ecosistema de aplicaciones diseñado para PyMEs. Conty para tus cuentas, Shop para tu tienda. Todo integrado.",
   keywords = "gadmin, conty, shop, apps para negocios, ecosistema empresarial, pymes, emprendedores, venezuela, contabilidad, tienda online",
-  image = "/meta-banner.png",
+  image = "/banner-meta.png",
   canonicalURL = Astro.url,
   type = "website",
   lang = "en",
@@ -30,7 +30,7 @@ const siteUrl = Astro.site
   ? Astro.site.toString().replace(/\/$/, "")
   : "https://bio.gadmin.app";
 const logoUrl = `${siteUrl}/favicon.png`;
-const bannerUrl = `${siteUrl}/meta-banner.png`;
+const bannerUrl = `${siteUrl}/banner-meta.png`;
 
 // hreflang alternate URLs
 const alternates = getAlternateUrls(Astro.url.pathname, siteUrl);
@@ -55,9 +55,7 @@ const schemaObject = {
       image: bannerUrl,
       description: description,
       inLanguage: lang === "es" ? "es" : "en",
-      sameAs: [
-        "https://gadminconty.com",
-      ],
+      sameAs: ["https://gadminconty.com"],
     },
     {
       "@type": "WebSite",
