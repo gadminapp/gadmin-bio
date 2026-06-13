@@ -29,8 +29,6 @@ const siteTitle = title.includes("Gadmin") ? title : `${title} | Gadmin`;
 const siteUrl = Astro.site
   ? Astro.site.toString().replace(/\/$/, "")
   : "https://bio.gadmin.app";
-const logoUrl = `${siteUrl}/favicon.png`;
-const bannerUrl = `${siteUrl}/banner-meta.png`;
 
 // hreflang alternate URLs
 const alternates = getAlternateUrls(Astro.url.pathname, siteUrl);
@@ -38,37 +36,6 @@ const alternates = getAlternateUrls(Astro.url.pathname, siteUrl);
 // Locale for OG tags
 const ogLocale = lang === "es" ? "es_ES" : "en_US";
 const ogLocaleAlt = lang === "es" ? "en_US" : "es_ES";
-
-// Rich Schema (JSON-LD)
-const schemaObject = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": `${siteUrl}/#organization`,
-      name: "Gadmin",
-      url: siteUrl,
-      logo: {
-        "@type": "ImageObject",
-        url: logoUrl,
-      },
-      image: bannerUrl,
-      description: description,
-      inLanguage: lang === "es" ? "es" : "en",
-      sameAs: ["https://gadminconty.com"],
-    },
-    {
-      "@type": "WebSite",
-      "@id": `${siteUrl}/#website`,
-      url: siteUrl,
-      name: "Gadmin",
-      inLanguage: lang === "es" ? "es" : "en",
-      publisher: {
-        "@id": `${siteUrl}/#organization`,
-      },
-    },
-  ],
-};
 ---
 
 <!-- Global Metadata -->
@@ -118,6 +85,3 @@ const schemaObject = {
   href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap"
   rel="stylesheet"
 />
-
-<!-- Google Rich Schema (JSON-LD) -->
-<script type="application/ld+json" set:html={JSON.stringify(schemaObject)} />

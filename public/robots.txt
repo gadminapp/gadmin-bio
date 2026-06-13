@@ -22,4 +22,4 @@ User-agent: FacebookBot
 Disallow: /
 
 # Sitemap
-Sitemap: https://gadminconty.com/sitemap-index.xml
+Sitemap: https://bio.gadmin.app/sitemap-index.xml
