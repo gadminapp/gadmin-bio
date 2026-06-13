@@ -1,5 +1,5 @@
 {
-  "name": "gadmin-conty-landing",
+  "name": "gadmin-bio",
   "type": "module",
   "version": "1.0.0",
   "engines": {
@@ -16,7 +16,7 @@
     "@astrojs/cloudflare": "^13.7.0",
     "@astrojs/sitemap": "^3.7.2",
     "@tailwindcss/vite": "^4.2.2",
-    "astro": "^6.1.2",
+    "astro": "^6.3.0",
     "tailwindcss": "^4.2.2",
     "wrangler": "^4.100.0"
   },
