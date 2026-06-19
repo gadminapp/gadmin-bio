@@ -924,6 +924,31 @@ body {
   margin: 0;
 }
 
+.bio-app-mini-ext {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+  color: var(--text-muted);
+  opacity: 0.45;
+  transition: opacity var(--transition), color var(--transition), transform var(--transition);
+  flex-shrink: 0;
+}
+
+.bio-app-mini:hover .bio-app-mini-ext {
+  opacity: 0.9;
+  transform: translate(1px, -1px);
+}
+
+.conty:hover .bio-app-mini-ext {
+  color: var(--conty);
+}
+
+.shop:hover .bio-app-mini-ext {
+  color: var(--shop);
+}
+
 .bio-ecosystem-sync {
   display: flex;
   align-items: center;
