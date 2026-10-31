@@ -2,8 +2,8 @@
 import Layout from "../../layouts/Layout.astro";
 import { useTranslations } from "../../i18n/utils";
 import logoLight from "../../assets/logo-light.webp";
+import sellLogo from "../../assets/sell-logo.webp";
 import contyLogo from "../../assets/conty-logo.webp";
-import shopLogo from "../../assets/shop-logo.webp";
 
 const lang = "es" as const;
 const t = useTranslations(lang);
@@ -48,18 +48,40 @@ const t = useTranslations(lang);
       <div class="bio-avatar">
         <img src={logoLight.src} alt="Gadmin" class="bio-avatar-img" />
       </div>
-      <h1 class="bio-title">{t("bio.seo.title")}</h1>
-      <p class="bio-subtitle">{t("bio.seo.description")}</p>
+      <h1 class="bio-title">{t("bio.headline")}</h1>
+      <p class="bio-subtitle">{t("bio.tagline")}</p>
     </header>
 
-    <!-- Apps & Ecosystem Card -->
+    <!-- Agencies -->
     <div class="bio-ecosystem animate-up delay-1">
       <div class="bio-ecosystem-title">{t("bio.ecosystem.title")}</div>
 
       <div class="bio-apps-grid">
+        <!-- Sell -->
+        <a
+          href="https://gadmin.app"
+          target="_blank"
+          rel="noopener"
+          class="bio-app-mini sell"
+        >
+          <svg class="bio-app-mini-ext" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+          </svg>
+          <div class="bio-app-mini-header">
+            <div class="bio-app-mini-icon">
+              <img src={sellLogo.src} alt="Gadmin Sell" />
+            </div>
+            <div class="bio-app-mini-meta">
+              <div class="bio-app-mini-name">{t("bio.sell.name")}</div>
+              <div class="bio-app-mini-badge">{t("bio.sell.badge")}</div>
+            </div>
+          </div>
+          <p class="bio-app-mini-desc">{t("bio.sell.tagline")}</p>
+        </a>
+
         <!-- Conty -->
         <a
-          href="https://gadminconty.com"
+          href="https://gadmin.app"
           target="_blank"
           rel="noopener"
           class="bio-app-mini conty"
@@ -69,7 +91,7 @@ const t = useTranslations(lang);
           </svg>
           <div class="bio-app-mini-header">
             <div class="bio-app-mini-icon">
-              <img src={contyLogo.src} alt="Conty" />
+              <img src={contyLogo.src} alt="Gadmin Conty" />
             </div>
             <div class="bio-app-mini-meta">
               <div class="bio-app-mini-name">{t("bio.conty.name")}</div>
@@ -78,61 +100,26 @@ const t = useTranslations(lang);
           </div>
           <p class="bio-app-mini-desc">{t("bio.conty.tagline")}</p>
         </a>
-
-        <!-- Shop -->
-        <a
-          href="https://gadmin.shop"
-          target="_blank"
-          rel="noopener"
-          class="bio-app-mini shop"
-        >
-          <svg class="bio-app-mini-ext" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-          </svg>
-          <div class="bio-app-mini-header">
-            <div class="bio-app-mini-icon">
-              <img src={shopLogo.src} alt="Shop" />
-            </div>
-            <div class="bio-app-mini-meta">
-              <div class="bio-app-mini-name">{t("bio.shop.name")}</div>
-              <div class="bio-app-mini-badge">{t("bio.shop.badge")}</div>
-            </div>
-          </div>
-          <p class="bio-app-mini-desc">{t("bio.shop.tagline")}</p>
-        </a>
       </div>
 
       <div class="bio-ecosystem-sync">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          ><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"
-          ></path></svg
-        >
         {t("bio.ecosystem.sync")}
       </div>
     </div>
 
     <!-- Bio Links List -->
     <div class="bio-links-list animate-up delay-2">
-      <!-- Descargar Conty -->
+      <!-- Sell -->
       <a
-        href="https://gadminconty.com"
+        href="https://gadmin.app"
         target="_blank"
         rel="noopener"
-        class="bio-link-btn primary-conty"
+        class="bio-link-btn primary-sell"
       >
         <div class="bio-link-btn-icon">
-          <img src={contyLogo.src} alt="Conty" />
+          <img src={sellLogo.src} alt="Gadmin Sell" />
         </div>
-        <span>{t("bio.links.conty")}</span>
+        <span>{t("bio.links.sell")}</span>
         <svg
           class="bio-link-btn-arrow"
           xmlns="http://www.w3.org/2000/svg"
@@ -148,17 +135,17 @@ const t = useTranslations(lang);
         >
       </a>
 
-      <!-- Visitar Shop -->
+      <!-- Conty -->
       <a
-        href="https://gadmin.shop"
+        href="https://gadmin.app"
         target="_blank"
         rel="noopener"
-        class="bio-link-btn primary-shop"
+        class="bio-link-btn primary-conty"
       >
         <div class="bio-link-btn-icon">
-          <img src={shopLogo.src} alt="Shop" />
+          <img src={contyLogo.src} alt="Gadmin Conty" />
         </div>
-        <span>{t("bio.links.shop")}</span>
+        <span>{t("bio.links.conty")}</span>
         <svg
           class="bio-link-btn-arrow"
           xmlns="http://www.w3.org/2000/svg"
@@ -217,6 +204,38 @@ const t = useTranslations(lang);
         >
       </a>
 
+      <a href="mailto:contacto@gadmin.app" class="bio-link-btn brand-gadmin">
+        <div class="bio-link-btn-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
+              d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
+          >
+        </div>
+        <span>{t("bio.links.email")}</span>
+        <svg
+          class="bio-link-btn-arrow"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+        >
+      </a>
+
       <!-- Ir a Tik Tok -->
       <a
         href="https://www.tiktok.com/@gadmin.app"
@@ -239,6 +258,32 @@ const t = useTranslations(lang);
           >
         </div>
         <span>{t("bio.links.tiktok")}</span>
+        <svg
+          class="bio-link-btn-arrow"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+        >
+      </a>
+
+      <!-- Instagram de Sell -->
+      <a
+        href="https://www.instagram.com/gadminsell"
+        target="_blank"
+        rel="noopener"
+        class="bio-link-btn instagram-btn instagram-sell"
+      >
+        <div class="bio-link-btn-icon">
+          <img src={sellLogo.src} alt="Gadmin Sell" />
+        </div>
+        <span>{t("bio.links.instagramSell")}</span>
         <svg
           class="bio-link-btn-arrow"
           xmlns="http://www.w3.org/2000/svg"

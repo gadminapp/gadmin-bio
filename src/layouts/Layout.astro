@@ -41,8 +41,10 @@ const gadminSchema = schema ?? {
         url: `${siteUrl}/favicon.png`,
       },
       description: description,
+      email: "contacto@gadmin.app",
       sameAs: [
         "https://www.instagram.com/gadmin.app/",
+        "https://www.instagram.com/gadminsell",
         "https://www.tiktok.com/@gadmin.app",
         "https://www.linkedin.com/company/gadminapp",
       ],
@@ -57,30 +59,35 @@ const gadminSchema = schema ?? {
     },
     {
       "@type": "ItemList",
-      "@id": `${siteUrl}/#apps`,
-      name: lang === "es" ? "Apps de Gadmin" : "Gadmin Apps",
+      "@id": `${siteUrl}/#agencies`,
+      name: lang === "es" ? "Agencias de Gadmin" : "Gadmin agencies",
       itemListElement: [
         {
           "@type": "ListItem",
           position: 1,
           item: {
-            "@type": "SoftwareApplication",
-            name: "Conty",
-            url: "https://gadminconty.com",
-            applicationCategory: "BusinessApplication, FinanceApplication",
-            operatingSystem: "Android",
-            offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+            "@type": "Service",
+            name: "Gadmin Sell",
+            url: "https://gadmin.app",
+            serviceType:
+              lang === "es"
+                ? "Atención comercial 24/7 en WhatsApp"
+                : "24/7 WhatsApp sales",
+            provider: { "@id": `${siteUrl}/#organization` },
           },
         },
         {
           "@type": "ListItem",
           position: 2,
           item: {
-            "@type": "SoftwareApplication",
-            name: "Gadmin Shop",
-            url: siteUrl,
-            applicationCategory: "BusinessApplication",
-            operatingSystem: "Android",
+            "@type": "Service",
+            name: "Gadmin Conty",
+            url: "https://gadmin.app",
+            serviceType:
+              lang === "es"
+                ? "Finanzas y estrategia"
+                : "Finance and strategy",
+            provider: { "@id": `${siteUrl}/#organization` },
           },
         },
       ],
